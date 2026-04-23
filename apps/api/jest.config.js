@@ -8,4 +8,5 @@ module.exports = {
   moduleNameMapper: {
     "^@ernest-annor/shared$": "<rootDir>/../../packages/shared/src/index.ts",
   },
+  silent: true,
 };
