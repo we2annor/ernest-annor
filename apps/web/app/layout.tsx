@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Nav } from "@/components/layout/Nav";
+import { GradientBackground } from "@/components/layout/GradientBackground";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -71,7 +73,11 @@ export default function RootLayout({
       className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body className='min-h-screen'>
+        <GradientBackground />
+        <Nav />
+        <main className='pt-16'>{children}</main>
+      </body>
     </html>
   );
 }

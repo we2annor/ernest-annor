@@ -32,6 +32,38 @@
       #051a1f 100%);
 }
 
+[data-gradient="home"] {
+  background: radial-gradient(ellipse at top left, #051a2e 0%, #020d12 45%, #051a1f 100%);
+}
+
+[data-gradient="about"] {
+  background: radial-gradient(ellipse at top right, #0a1a2e 0%, #020d12 45%, #051a1f 100%);
+}
+
+[data-gradient="experience"] {
+  background: radial-gradient(ellipse at bottom left, #051a1a 0%, #020d12 45%, #0a1a2e 100%);
+}
+
+[data-gradient="projects"] {
+  background: radial-gradient(ellipse at center, #1a051a 0%, #020d12 45%, #051a1f 100%);
+}
+
+[data-gradient="blog"] {
+  background: radial-gradient(ellipse at top, #051a2e 0%, #020d12 55%, #1a0a05 100%);
+}
+
+[data-gradient="contact"] {
+  background: radial-gradient(ellipse at bottom right, #051a1f 0%, #020d12 45%, #1a051a 100%);
+}
+
+[data-gradient="cv"] {
+  background: radial-gradient(ellipse at center top, #0a1a0a 0%, #020d12 45%, #051a2e 100%);
+}
+
+[data-gradient="uses"] {
+  background: radial-gradient(ellipse at bottom, #051a2e 0%, #020d12 45%, #0a051a 100%);
+}
+
 /* Base styles */
 @layer base {
   * {
@@ -53,6 +85,7 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.8s
 }
 
 /* Selection colour */
