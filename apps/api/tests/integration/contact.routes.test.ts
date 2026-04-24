@@ -34,7 +34,7 @@ describe("POST /api/contact", () => {
         .post("/api/contact")
         .send(validPayload);
 
-      expect(response.status).toBe(200);
+      expect(response.status).toBe(201);
       expect(response.body.success).toBe(true);
       expect(response.body.message).toBe("Message sent successfully");
     });
@@ -95,7 +95,7 @@ describe("POST /api/contact", () => {
         .post("/api/contact")
         .send(validPayload);
 
-      expect(response.status).toBe(200);
+      expect(response.status).toBe(201);
       expect(response.body.success).toBe(true);
     });
 

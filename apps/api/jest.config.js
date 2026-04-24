@@ -3,7 +3,7 @@ module.exports = {
   testEnvironment: "node",
   roots: ["<rootDir>/tests"],
   transform: {
-    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "./tsconfig.test.json" }],
+    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "./tsconfig.json" }],
   },
   moduleNameMapper: {
     "^@ernest-annor/shared$": "<rootDir>/../../packages/shared/src/index.ts",

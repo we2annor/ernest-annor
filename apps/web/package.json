@@ -1,0 +1,37 @@
+{
+  "name": "@ernest-annor/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@ernest-annor/shared": "workspace:*",
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "framer-motion": "^11.0.0",
+    "resend": "^3.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@playwright/test": "^1.44.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "jsdom": "^24.0.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^1.0.0"
+  }
+}

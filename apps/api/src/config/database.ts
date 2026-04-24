@@ -7,13 +7,8 @@ export async function connectDatabase(): Promise<void> {
     throw new Error("MONGODB_URI environment variable is not set");
   }
 
-  try {
-    await mongoose.connect(uri);
-    console.log("✅ Connected to MongoDB");
-  } catch (error) {
-    console.error("❌ MongoDB connection error:", error);
-    process.exit(1);
-  }
+  await mongoose.connect(uri);
+  console.log("✅ Connected to MongoDB");
 }
 
 export async function disconnectDatabase(): Promise<void> {

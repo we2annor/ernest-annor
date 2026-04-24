@@ -9,7 +9,7 @@ export function errorHandler(
   console.error(err.stack);
 
   res.status(500).json({
-    error: "Internal sever error",
-    message: process.env.NODE_ENV == "development" ? err.message : undefined,
+    error: "Internal server error",
+    message: process.env.NODE_ENV === "development" ? err.message : undefined,
   });
 }

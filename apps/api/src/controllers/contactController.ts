@@ -25,7 +25,7 @@ export async function submitContact(
       console.error("Email send failed:", emailError);
     }
 
-    res.status(200).json({
+    res.status(201).json({
       success: true,
       message: "Message sent successfully",
     });

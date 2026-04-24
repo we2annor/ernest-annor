@@ -1,21 +1,19 @@
 import { Resend } from "resend";
-import { ContactInput } from "../validation/contact";
+import { ContactFormData } from "@ernest-annor/shared";
 
-export async function sendContactEmail(data: ContactInput): Promise<void> {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+const apiKey = process.env.RESEND_API_KEY;
+const resend = apiKey ? new Resend(apiKey) : null;
+
+export async function sendContactEmail(data: ContactFormData): Promise<void> {
+  if (!apiKey || !resend) {
     throw new Error("RESEND_API_KEY environment variable is not set");
   }
 
-  const resend = new Resend(apiKey);
   const { name, email, subject, message } = data;
 
   await resend.emails.send({
     from: process.env.FROM_EMAIL || "contact@ernestannor.com",
-    to: [
-      process.env.TO_EMAIL || "we2annor@gmail.com",
-      "contact@ernestannor.com",
-    ],
+    to: [process.env.TO_EMAIL || "we2annor@gmail.com"],
     reply_to: email,
     subject: `Portfolio Contact: ${subject}`,
     html: `
