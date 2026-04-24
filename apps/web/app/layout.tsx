@@ -3,6 +3,7 @@ import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { GradientBackground } from "@/components/layout/GradientBackground";
+import { Footer } from "@/components/layout/Footer";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ export default function RootLayout({
         <GradientBackground />
         <Nav />
         <main className='pt-16'>{children}</main>
+        <Footer />
       </body>
     </html>
   );
