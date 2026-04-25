@@ -20,7 +20,7 @@ export function ContactCTASection() {
         {/* Content */}
         <div className='relative z-10 space-y-6'>
           <p className='text-text-muted text-sm font-mono uppercase tracking-widest'>
-            What's Next?
+            What&rsquo;s Next?
           </p>
 
           <h2
@@ -28,13 +28,14 @@ export function ContactCTASection() {
             className='font-syne font-bold text-text-primary'
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
           >
-            Let's Build Something <span className='text-accent'>Together</span>
+            Let&rsquo;s Build Something{" "}
+            <span className='text-accent'>Together</span>
           </h2>
 
           <p className='text-text-muted text-lg max-w-xl mx-auto leading-relaxed'>
-            I'm currently open to new opportunities. Whether you have a role in
-            mind, a project to discuss, or just want to say hello — my inbox is
-            always open.
+            I&rsquo;m currently open to new opportunities. Whether you have a
+            role in mind, a project to discuss, or just want to say hello — my
+            inbox is always open.
           </p>
 
           <div className='flex flex-wrap gap-4 justify-center pt-4'>
