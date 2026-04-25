@@ -25,6 +25,7 @@ const roles = [
 export function HeroSection() {
   const [currentRole, setCurrentRole] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -32,8 +33,12 @@ export function HeroSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+        setIsFading(false);
+      }, 500);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -61,8 +66,11 @@ export function HeroSection() {
         {/* Rotating roles*/}
         <div className='h-16 flex items-center mb-6'>
           <h2
-            className='font-syne font-bold text-text-muted'
-            style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}
+            className='font-syne font-bold text-text-muted transition-opacity duration-400'
+            style={{
+              fontSize: "clamp(1.5rem, 4vw, 3rem)",
+              opacity: isFading ? 0 : 1,
+            }}
             aria-live='polite'
             aria-atomic='true'
           >
