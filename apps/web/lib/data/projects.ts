@@ -3,9 +3,9 @@ import { Project } from "@ernest-annor/shared";
 export const projects: Project[] = [
   {
     id: "1",
-    title: "NOWTV & Peacock",
+    title: "NowTV & Peacock Streaming Platform",
     description:
-      "Large-scale consumer streaming platform used by millions of users across web and Tv devices. Led frontend development including Quick Subscribe feature - an Amazon IAP integration that increased subscription rates by 40%.",
+      "Lead frontend engineer on large-scale consumer streaming applications used by millions of users across web and TV devices. Implemented the Quick Subscribe Amazon IAP integration that increased subscription rates by 40%.",
     techStack: [
       "React",
       "TypeScript",
@@ -16,7 +16,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     featured: true,
-    liveUrl: "htts://nowtv.com",
+    liveUrl: "https://nowtv.com",
     createdAt: "2022-05-01",
   },
   {
@@ -28,6 +28,7 @@ export const projects: Project[] = [
       "React",
       "GraphQL",
       "Styled Components",
+      "Storybook",
       "Playwright",
       "Jenkins",
     ],
@@ -37,12 +38,21 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    title: "Sports Direct E-commerce Platform",
+    title: "Sports Direct E-commerce Performance",
     description:
-      "Led performance optimisation initiatives for high-traffic e-commerce platforms across Sports Direct, Flannels, and House of Fraser. Significantly improved page load times and core web vitals.",
+      "Led performance optimisation initiatives for high-traffic e-commerce platforms across Sports Direct, Flannels, and House of Fraser. Significantly improved page load times, core web vitals, and user experience.",
     techStack: ["Next.js", "React", "Node.js", "GraphQL", "Apollo", "MongoDB"],
     featured: true,
     createdAt: "2021-03-01",
+  },
+  {
+    id: "4",
+    title: "OLM ECLIPSE SaaS Platform",
+    description:
+      "Migrated a large legacy YUI codebase to React as part of a next-generation SaaS platform serving the Care, Health, and Education sector. Contributed to backend development in Java improving data integrity and system performance.",
+    techStack: ["React", "YUI", "Java", "Jest", "Jenkins", "Bitbucket"],
+    featured: false,
+    createdAt: "2019-01-01",
   },
 ];
 
