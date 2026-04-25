@@ -1,0 +1,60 @@
+export const metadata = {
+  title: "Building Quick Subscribe — Amazon IAP Integration at Scale",
+  description:
+    "How we implemented a seamless Amazon In-App Purchase flow on Peacock that increased subscription rates by 40%.",
+};
+
+# Building Quick Subscribe — Amazon IAP Integration at Scale
+
+**Published:** 15 March 2024 · **8 min read**
+
+One of the most impactful features I worked on at Sky was the Quick Subscribe integration for Peacock on Amazon Fire devices. The problem was straightforward — users landing on our app detail page on Amazon had no way to initiate a subscription without leaving Amazon's ecosystem. The solution changed our subscription rates dramatically.
+
+## The Problem
+
+Amazon Fire device users would discover Peacock on the Amazon App Store, click through to our detail page, and hit a dead end. There was no call-to-action to subscribe — users had to download the app first, open it, and navigate to a subscription flow. The drop-off rate at this stage was significant.
+
+## The Solution — Amazon In-App Purchase API
+
+Amazon provides an In-App Purchase (IAP) API that allows apps to trigger subscription flows directly from within the Amazon ecosystem. We decided to implement a Quick Subscribe button that would appear on our Amazon detail page and complete the entire subscription flow without the user ever leaving Amazon.
+
+## The Technical Challenge
+
+The authentication flow was the most complex part. To subscribe a user via Amazon IAP, we needed to:
+
+1. Check for a pending transaction
+2. Retrieve the user's consent status
+3. Exchange an authorisation code for an access token
+4. Use the access token alongside our credentials to authenticate the user
+
+These calls had dependencies between them — you couldn't check consent without a pending transaction — but some could be parallelised safely.
+
+```typescript
+async function authenticateViaAmazonIAP(): Promise<User> {
+  // Step 1 — Check for pending transaction
+  const transaction = await checkPendingTransaction();
+  if (!transaction) throw new PendingTransactionError();
+
+  // Step 2 — Get consent (depends on transaction)
+  const consent = await getUserConsent(transaction.id);
+
+  // Step 3 & 4 — Parallel: exchange code + get credentials
+  const [authCode, credentials] = await Promise.all([
+    exchangeAuthorisationCode(consent.code),
+    getPartnerCredentials(),
+  ]);
+
+  // Step 5 — Authenticate
+  return authenticateUser(authCode, credentials);
+}
+```
+
+## The Result
+
+After shipping Quick Subscribe, our subscription rate on Amazon Fire devices increased by **40%**. The feature is now part of the standard onboarding flow across all Amazon Fire device variants.
+
+## Key Learnings
+
+- Always map async dependencies before writing code — some calls can be parallelised, others can't
+- Amazon IAP has edge cases around token expiry that need explicit handling
+- Test on real hardware — Fire TV Stick behaviour differs from the simulator in subtle ways

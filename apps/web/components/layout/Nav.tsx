@@ -51,7 +51,8 @@ export function Nav() {
         {/* Desktop links */}
         <ul className='hidden md:flex items-center gap-8' role='list'>
           {navlinks.map(({ label, href }) => {
-            const isActive = pathname === href;
+            const isActive =
+              pathname === href || (href !== "/" && pathname.startsWith(href));
             return (
               <li key={href}>
                 <Link
@@ -116,7 +117,8 @@ export function Nav() {
       >
         <ul className='px-6 py-4 space-y-4' role='list'>
           {navlinks.map(({ label, href }) => {
-            const isActive = pathname === href;
+            const isActive =
+              pathname === href || (href !== "/" && pathname.startsWith(href));
             return (
               <li key={href}>
                 <Link
