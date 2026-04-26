@@ -4,6 +4,7 @@ import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { GradientBackground } from "@/components/layout/GradientBackground";
 import { Footer } from "@/components/layout/Footer";
+import { Starfield } from "@/components/layout/Starfield";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -76,9 +77,12 @@ export default function RootLayout({
     >
       <body className='min-h-screen'>
         <GradientBackground />
-        <Nav />
-        <main className='pt-16'>{children}</main>
-        <Footer />
+        <Starfield />
+        <div className='relative' style={{ zIndex: 1 }}>
+          <Nav />
+          <main className='pt-16'>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

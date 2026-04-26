@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/Button";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navlinks = [
   { label: "About", href: "/about" },
@@ -43,10 +44,32 @@ export function Nav() {
         {/* Logo */}
         <Link
           href='/'
-          className='font-syne font-bold text-2xl text-accent hover:opacity-80 transition-opacity'
+          className='font-syne font-bold text-2xl text-accent hover:opacity-80 transition-opacity focus:outline-none focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2'
           aria-label='Ernest Annor - Home'
         >
-          EA
+          <AnimatePresence mode='wait'>
+            {isScrolled ? (
+              <motion.span
+                key='ea'
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                transition={{ duration: 0.2 }}
+              >
+                EA
+              </motion.span>
+            ) : (
+              <motion.span
+                key='full'
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+              >
+                Ernest Annor
+              </motion.span>
+            )}
+          </AnimatePresence>
         </Link>
         {/* Desktop links */}
         <ul className='hidden md:flex items-center gap-8' role='list'>
