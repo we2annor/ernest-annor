@@ -25,9 +25,17 @@ vi.mock("next/link", () => ({
 
 describe("Nav", () => {
   describe("rendering", () => {
-    it("renders the EA logo", () => {
+    it("renders the full name logo by default", () => {
       render(<Nav />);
-      expect(screen.getByText("EA")).toBeInTheDocument();
+      expect(screen.getByText("Ernest Annor")).toBeInTheDocument();
+    });
+
+    it("renders EA monogram and full name based on scroll", () => {
+      render(<Nav />);
+      // By default at top of page — full name visible
+      expect(screen.getByText("Ernest Annor")).toBeInTheDocument();
+      // EA should not be visible by default
+      expect(screen.queryByText("EA")).not.toBeInTheDocument();
     });
 
     it("renders all navigationlinks", () => {
@@ -116,7 +124,7 @@ describe("Nav", () => {
       ).toBeInTheDocument();
     });
 
-    it("logo link has sescriptive aria-label", () => {
+    it("logo link has descriptive aria-label", () => {
       render(<Nav />);
       expect(
         screen.getByRole("link", { name: "Ernest Annor - Home" })
