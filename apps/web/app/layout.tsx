@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vitejs/plugin-react";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
@@ -83,6 +84,7 @@ export default function RootLayout({
           <main className='pt-16'>{children}</main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );

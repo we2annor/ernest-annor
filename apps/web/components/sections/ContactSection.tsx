@@ -30,8 +30,8 @@ const initialFormData: FormData = {
 const contactDetails = [
   {
     label: "Email",
-    value: "we2annor@gmail.com",
-    href: "mailto:we2annor@gmail.com",
+    value: "contact@ernestannor.com",
+    href: "mailto:ernestannor.com",
     icon: (
       <svg
         width='20'
