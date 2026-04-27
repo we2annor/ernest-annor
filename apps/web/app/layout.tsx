@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vitejs/plugin-react";
+import { Analytics } from "@vercel/analytics/react";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
