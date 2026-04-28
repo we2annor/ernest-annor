@@ -19,7 +19,7 @@ export function FeaturedProjectSection() {
           <h2
             id='projects-heading'
             className='font-syne font-bold text-text-primary'
-            style={{ fontSize: "clamp(2rem, 5sv, 3.5rem)" }}
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
           >
             Featured <span className='text-accent'>Projects</span>
           </h2>

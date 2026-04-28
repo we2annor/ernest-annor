@@ -43,12 +43,12 @@ export function ExperienceSection() {
       <div className='relative'>
         {/* Vertical line */}
         <div
-          className='absolute left-0 top-0 bottom-0 w-[1px] bg-border ml-[7px]'
+          className='absolute left-0 top-0 bottom-0 w-px bg-border ml-[7px]'
           aria-hidden='true'
         />
 
         <div className='space-y-12'>
-          {experiences.map((exp, index) => (
+          {experiences.map((exp) => (
             <div key={exp.id} className='relative pl-10'>
               {/* Timeline dot */}
               <div

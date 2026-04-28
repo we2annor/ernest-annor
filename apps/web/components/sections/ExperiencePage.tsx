@@ -47,7 +47,7 @@ export function ExperiencePage() {
       <div className='relative'>
         {/* Vertical line */}
         <div
-          className='absolute left-0 top-0 bottom-0 w-[1px] bg-border ml-[7px] hidden md:block'
+          className='absolute left-0 top-0 bottom-0 w-px bg-border ml-[7px] hidden md:block'
           aria-hidden='true'
         />
 

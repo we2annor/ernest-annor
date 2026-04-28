@@ -26,7 +26,7 @@ export function Starfield() {
     function resize() {
       if (!canvas) return;
       canvas.width = window.innerWidth;
-      canvas.height = document.documentElement.scrollHeight;
+      canvas.height = window.innerHeight;
     }
 
     function generateStars() {
@@ -64,15 +64,16 @@ export function Starfield() {
     generateStars();
     animationRef.current = requestAnimationFrame(draw);
 
-    const resizeObserver = new ResizeObserver(() => {
+    function handleResize() {
       resize();
       generateStars();
-    });
-    resizeObserver.observe(document.documentElement);
+    }
+
+    window.addEventListener("resize", handleResize, { passive: true });
 
     return () => {
       cancelAnimationFrame(animationRef.current);
-      resizeObserver.disconnect();
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

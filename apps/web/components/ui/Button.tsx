@@ -61,7 +61,7 @@ export function Button({
     className,
   ].join(" ");
 
-  if (as == "a") {
+  if (as === "a") {
     const { href, ...anchorProps } =
       props as AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
     return (
