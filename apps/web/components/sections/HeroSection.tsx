@@ -57,10 +57,10 @@ export function HeroSection() {
         {/* Name */}
         <h1
           className='font-syne font-extrabold text-text-primary mb-2 leading-none'
-          style={{ fontSize: "clamp(3rem, 10vw, 7rem)" }}
+          style={{ fontSize: "clamp(2.5rem, 8vw, 7rem)" }}
         >
-          Ernest
-          <span className='text-accent'>Annor</span>
+          <span className='block'>Ernest</span>
+          <span className='block text-accent'>Annor</span>
         </h1>
 
         {/* Rotating roles*/}
