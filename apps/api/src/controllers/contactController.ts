@@ -19,10 +19,13 @@ export async function submitContact(
 
   try {
     await Contact.create(result.data);
+    console.log("✅ Contact saved to database");
+
     try {
       await sendContactEmail(result.data);
+      console.log("✅ Email sent successfully");
     } catch (emailError) {
-      console.error("Email send failed:", emailError);
+      console.error("❌ Email send failed:", emailError);
     }
 
     res.status(201).json({
@@ -30,7 +33,7 @@ export async function submitContact(
       message: "Message sent successfully",
     });
   } catch (error) {
-    console.error("Contact submission error:", error);
+    console.error("❌ Contact submission error:", error);
     res
       .status(500)
       .json({ error: "Failed to send message. Please try again." });
