@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+
 export const size = {
   width: 32,
   height: 32,
@@ -13,7 +14,7 @@ export default function Icon() {
         background: "#020d12",
         borderRadius: 6,
         display: "flex",
-        alignItems: "cener",
+        alignItems: "center",
         justifyContent: "center",
         border: "1.5px solid #00E5B0",
       }}
