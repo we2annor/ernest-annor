@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ernestannor.com";
@@ -19,14 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1 : 0.8,
   }));
 
-  const blogRoutes = [
-    "/blog/quick-subscribe-amazon-iap",
-    "/blog/lightning-vs-react-tv",
-    "/blog/frontend-accessibility-streaming",
-    "/blog/monorepo-architecture-nextjs",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
     changeFrequency: "yearly" as const,
     priority: 0.6,
   }));

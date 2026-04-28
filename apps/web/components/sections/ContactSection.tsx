@@ -31,7 +31,7 @@ const contactDetails = [
   {
     label: "Email",
     value: "contact@ernestannor.com",
-    href: "mailto:ernestannor.com",
+    href: "mailto:contact@ernestannor.com",
     icon: (
       <svg
         width='20'
