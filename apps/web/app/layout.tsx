@@ -44,6 +44,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Ernest Annor" }],
   creator: "Ernest Annor",
+  verification: {
+    google: "x0g6ENRVwic-tE_uJcxIh8CxL5Knc9wEp2AMjSA9ytc",
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
