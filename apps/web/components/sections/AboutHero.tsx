@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 export function AboutHero() {
@@ -77,27 +78,50 @@ export function AboutHero() {
           </div>
         </div>
 
-        {/* Stats / highlights */}
-        <div className='grid grid-cols-2 gap-6'>
-          {[
-            { value: "8+", label: "Years Experience" },
-            { value: "10M+", label: "Users Reached" },
-            { value: "3", label: "Companies" },
-            { value: "40%", label: "Subscription Uplift" },
-          ].map(({ value, label }) => (
+        {/* Right — photo and stats */}
+        <div className='space-y-8'>
+          {/* Profile photo */}
+          <div className='relative w-64 h-64 mx-auto lg:mx-0 rounded-2xl overflow-hidden border-2 border-accent/20'>
+            <Image
+              src='/profile.jpeg'
+              alt='Ernest Annor — Senior Software Engineer'
+              fill
+              className='object-cover grayscale'
+              priority
+            />
+            {/* Dark teal overlay */}
             <div
-              key={label}
-              className='bg-surface border border-border rounded-xl p-6 text-center space-y-2'
-            >
-              <p
-                className='font-syne font-bold text-accent'
-                style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+              className='absolute inset-0'
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(2, 13, 18, 0.6) 0%, rgba(0, 229, 176, 0.15) 100%)",
+                mixBlendMode: "multiply",
+              }}
+            />
+          </div>
+
+          {/* Stats */}
+          <div className='grid grid-cols-2 gap-4'>
+            {[
+              { value: "8+", label: "Years Experience" },
+              { value: "10M+", label: "Users Reached" },
+              { value: "3", label: "Companies" },
+              { value: "40%", label: "Subscription Uplift" },
+            ].map(({ value, label }) => (
+              <div
+                key={label}
+                className='bg-surface border border-border rounded-xl p-4 text-center space-y-1'
               >
-                {value}
-              </p>
-              <p className='text-text-muted text-sm'>{label}</p>
-            </div>
-          ))}
+                <p
+                  className='font-syne font-bold text-accent'
+                  style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}
+                >
+                  {value}
+                </p>
+                <p className='text-text-muted text-xs'>{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
