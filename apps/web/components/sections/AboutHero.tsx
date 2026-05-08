@@ -86,6 +86,7 @@ export function AboutHero() {
               src='/profile.jpeg'
               alt='Ernest Annor — Senior Software Engineer'
               fill
+              sizes='256px'
               className='object-cover grayscale'
               priority
             />
